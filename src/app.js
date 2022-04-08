@@ -19,11 +19,13 @@ let masterCard = document.querySelector("#masterCard");
 let dinners = document.querySelector("#dinners");
 let amex = document.querySelector("#amex");
 let recuadro = document.querySelector("#recuadroTarjetas");
-
+let mensajeHtml = document.querySelector("#mensajeHtml");
 let enviar = document.querySelector("#enviar");
-console.log(enviar);
+let borrar = document.querySelector("#borrar");
+let mensaje = "";
 
 enviar.addEventListener("click", comprobar);
+borrar.addEventListener("click", borrarTodo);
 function comprobar() {
   comprobarTarjeta();
   comprobarCvc();
@@ -34,13 +36,17 @@ function comprobar() {
   comprobarCiudad();
   comprobarPais();
   comprobarCodigo();
+  enviadoCorrectamente();
+  imprimirMensaje();
+  console.log(mensajeHtml);
+  mensaje = "";
 }
 function comprobarTarjeta() {
   if (isNaN(tarjeta.value) == true || tarjeta.value == "") {
-    //alert("numero de tarjeta incorrecto");
+    mensaje += "- Numero de tarjeta incorrecto<br>";
     tarjeta.className += " error";
   } else if (tarjeta.value.length != 16) {
-    //alert("cantidad de numeros incorrecta en Numero de Tarjeta");
+    mensaje += "- Cantidad de numeros incorrecta en Numero de Tarjeta <br>";
     tarjeta.className += " error";
   } else {
     tarjeta.className = "form-control";
@@ -49,10 +55,10 @@ function comprobarTarjeta() {
 function comprobarCvc() {
   if (visa.checked == true) {
     if (isNaN(cvc.value) == true || cvc.value == "") {
-      //alert("numero de CVC incorrecto");
+      mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 3) {
-      //alert("cantidad de numeros incorrecta en CVC para este tipo de tarjeta");
+      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
@@ -60,10 +66,10 @@ function comprobarCvc() {
     }
   } else if (masterCard.checked == true) {
     if (isNaN(cvc.value) == true || cvc.value == "") {
-      //alert("numero de CVC incorrecto");
+      mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 3) {
-      //alert("cantidad de numeros incorrecta en CVC para este tipo de tarjeta");
+      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
@@ -71,10 +77,10 @@ function comprobarCvc() {
     }
   } else if (dinners.checked == true) {
     if (isNaN(cvc.value) == true || cvc.value == "") {
-      //alert("numero de CVC incorrecto");
+      mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 3) {
-      //alert("cantidad de numeros incorrecta en CVC para este tipo de tarjeta");
+      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
@@ -82,23 +88,23 @@ function comprobarCvc() {
     }
   } else if (amex.checked == true) {
     if (isNaN(cvc.value) == true || cvc.value == "") {
-      //alert("numero de CVC incorrecto");
+      mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 4) {
-      //alert("cantidad de numeros incorrecta en CVC para este tipo de tarjeta");
+      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
       cvc.className = "form-control";
     }
   } else {
-    //alert("Por Favor Seleccione un tipo de tarjeta");
+    mensaje += "- Por Favor Seleccione un tipo de tarjeta<br>";
     recuadro.className = " error";
   }
 }
 function comprobarAmount() {
   if (amount.value <= 0) {
-    //alert("el importe es incorrecto");
+    mensaje += "- El importe es incorrecto<br>";
     amount.className += " error";
   } else {
     amount.className = "form-control";
@@ -106,7 +112,7 @@ function comprobarAmount() {
 }
 function comprobarNombre() {
   if (nombre.value == "") {
-    //alert("Por Favor Rellenar Nombre");
+    mensaje += "- Por Favor Rellene el Nombre<br>";
     nombre.className += " error";
   } else {
     nombre.className = "form-control";
@@ -114,7 +120,7 @@ function comprobarNombre() {
 }
 function comprobarApellido() {
   if (apellido.value == "") {
-    //alert("Por Favor Rellenar Apellido");
+    mensaje += "- Por Favor Rellene el Apellido<br>";
     apellido.className += " error";
   } else {
     apellido.className = "form-control";
@@ -122,7 +128,7 @@ function comprobarApellido() {
 }
 function comprobarCiudad() {
   if (ciudad.value == "") {
-    //alert("Por Favor Rellenar Ciudad");
+    mensaje += "- Por Favor Rellene la Ciudad<br>";
     ciudad.className += " error";
   } else {
     ciudad.className = "form-control";
@@ -130,7 +136,7 @@ function comprobarCiudad() {
 }
 function comprobarPais() {
   if (pais.value == "Elegir") {
-    //alert("Por Favor Seleccione un Pais");
+    mensaje += "- Por Favor Seleccione un Pais<br>";
     pais.className += " error";
   } else {
     pais.className = "form-control";
@@ -138,9 +144,44 @@ function comprobarPais() {
 }
 function comprobarCodigo() {
   if (isNaN(codigo.value) == true || codigo.value == "") {
-    //alert("por favor inserte numero correcto en Postal Code");
+    mensaje += "- Por favor inserte un codigo postal correcto<br>";
     codigo.className += " error";
   } else {
     codigo.className = "form-control";
   }
+}
+function enviadoCorrectamente() {
+  if (mensaje == "") {
+    mensaje = "Formulario enviado Correctamente";
+  }
+}
+
+function imprimirMensaje() {
+  mensajeHtml.innerHTML = mensaje;
+  if (mensaje === "Formulario enviado Correctamente") {
+    mensajeHtml.className = "form-control verde";
+  } else {
+    mensajeHtml.className = "form-control rojo";
+  }
+}
+function borrarTodo() {
+  tarjeta.value = "";
+  tarjeta.className = "form-control";
+  cvc.value = "";
+  cvc.className = "form-control";
+  amount.value = "";
+  amount.className = "form-control";
+  nombre.value = "";
+  nombre.className = "form-control";
+  apellido.value = "";
+  apellido.className = "form-control";
+  ciudad.value = "";
+  ciudad.className = "form-control";
+  pais.value = "Elegir";
+  pais.className = "form-control";
+  codigo.value = "";
+  codigo.className = "form-control";
+  recuadro.className = "form-control";
+  mensajeHtml.innerHTML = "";
+  mensajeHtml.className = "form-control";
 }
