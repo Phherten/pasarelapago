@@ -26,17 +26,17 @@
       <div class="cuadroform">
         <div class="row"><div class="col-12"><p id="error"></p></div></div>
         <div class="row ">
-          <div class="col-5 mt-2"><p>Card #</p></p><input type="number" min="1000000000000000" max="9999999999999999" class="form-control"></div>
-          <div class="col-3 mt-2"><p>CVC #</p> <input type="number" class="form-control"></div>
-          <div class="col-4 mt-2"><p>Amount</p><input type="number" class="form-control"></div>
+          <div class="col-5 mt-2"><p>Card #</p></p><input type="text" class="form-control" id="tarjeta"></div>
+          <div class="col-3 mt-2"><p>CVC #</p> <input type="text" class="form-control" id="cvc"></div>
+          <div class="col-4 mt-2"><p>Amount</p><input type="text" class="form-control" id="amount"></div>
         </div>
         <div class="row">
-          <div class="col-6 mt-2"><p>First Name</p><input type=text class="form-control"></div>
-          <div class="col-6 mt-2"><p>Last Name</p><input type=text class="form-control"></div>
+          <div class="col-6 mt-2"><p>First Name</p><input type=text class="form-control" id="nombre"></div>
+          <div class="col-6 mt-2"><p>Last Name</p><input type=text class="form-control" id="apellido"></div>
         </div>
         <div class="row ">
-          <div class="col-6 mt-2"><p>City</p></p><input type="text" class="form-control"></div>
-          <div class="col-3 mt-2"><p>State</p> <select name="pais" class="form-control">
+          <div class="col-6 mt-2"><p>City</p></p><input type="text" class="form-control" id="ciudad"></div>
+          <div class="col-3 mt-2"><p>State</p> <select name="pais" class="form-control" id="pais">
             <option value="Elegir" id="AF">Pais</option>
             <option value="Afganistán" id="AF">Afganistán</option>
             <option value="Albania" id="AL">Albania</option>
@@ -276,17 +276,17 @@
             <option value="Zambia" id="ZM">Zambia</option>
             <option value="Zimbabue" id="ZW">Zimbabue</option>
             </select></div>
-          <div class="col-3 mt-2"><p>Postal Code</p><input type="number" class="form-control"></div>
+          <div class="col-3 mt-2"><p>Postal Code</p><input type="text" class="form-control" id="codigo"></div>
         </div>
         <div class="row justify-content-between mt-2">
           <div class="col-4">
             <p>We Accept:</p>
-            <div class="tarjetas border bg-light">
+            <div class="tarjetas border bg-light" id="recuadroTarjetas">
               <input type="radio" id="visa"
                name="tarjeta" value="visa" class="ms-3">
               <label for="visa"><i class="fab fa-cc-visa pe-3"></i></i></label>
           
-              <input type="radio" id="MasterCard" class="ms-3"
+              <input type="radio" id="masterCard" class="ms-3"
                name="tarjeta" value="MasterCard">
               <label for="MasterCard"><i class="fab fa-cc-mastercard pe-3"></i></i></label>
           

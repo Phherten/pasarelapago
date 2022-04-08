@@ -2,3 +2,7 @@
 #texto {
   height: 200px !important;
 }
+
+.error {
+  border: solid red 2px;
+}
