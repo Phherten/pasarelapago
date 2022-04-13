@@ -58,7 +58,7 @@ function comprobarCvc() {
       mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 3) {
-      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
+      mensaje += "- CCV incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
@@ -69,7 +69,7 @@ function comprobarCvc() {
       mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 3) {
-      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
+      mensaje += "- CCV incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
@@ -80,7 +80,7 @@ function comprobarCvc() {
       mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 3) {
-      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
+      mensaje += "- CCV incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
@@ -91,7 +91,7 @@ function comprobarCvc() {
       mensaje += "- Numero de CVC incorrecto<br>";
       cvc.className += " error";
     } else if (cvc.value.length != 4) {
-      mensaje += "- CVC incorrecto para este tipo de tarjeta <br>";
+      mensaje += "- CCV incorrecto para este tipo de tarjeta <br>";
       cvc.className += " error";
     } else {
       recuadro.className = "tarjetas border bg-light";
